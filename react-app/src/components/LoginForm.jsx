@@ -4,7 +4,10 @@ import { Card, Form, Row, Col, Button } from "react-bootstrap";
 export default function LoginForm(props) {
     const handleLogin = e => {
         e.preventDefault()
-        console.log('handleLogin e.target', e.target)
+        const formElements = e.currentTarget.elements
+        console.log('formElements', formElements)
+        //const formValues = formElements.map(element=>element.value)
+        //console.log('formValues', formValues)
     }
 
     return (
