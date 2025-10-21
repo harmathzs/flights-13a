@@ -8,6 +8,17 @@ export default function LoginForm(props) {
         email = email.value
         password = password.value
         // console.log('email', email) // ok :) 
+        fetch('http://localhost:3333/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email, password})
+        })
+        .then(res=>{
+            if (res.ok) {
+                // TODO - call grandparent state set function
+            }
+        })
+        .catch(console.warn)
     }
 
     return (

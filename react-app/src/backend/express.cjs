@@ -5,7 +5,14 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+const users = [
+    {email: 'a@b.hu', password: 'a'},
+]
 
+app.post('/login', (req, res)=>{
+    const {email, password} = req.body
+    res.status(200).json( {found: users.findIndex(user=>user.email==email && user.password==password) } )
+})
 
 const port = 3333
 app.listen(port, err=>{
