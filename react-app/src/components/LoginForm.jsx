@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Card, Form, Row, Col, Button } from "react-bootstrap";
 
-export default function LoginForm(props) {
+export default function LoginForm({onLogin}) {
     const handleLogin = e => {
         e.preventDefault()
         let {email, password} = e.currentTarget.elements
@@ -15,7 +15,8 @@ export default function LoginForm(props) {
         })
         .then(res=>{
             if (res.ok) {
-                // TODO - call grandparent state set function
+                // call grandparent state set function
+                onLogin()
             }
         })
         .catch(console.warn)
