@@ -1,11 +1,12 @@
 import { Component } from "react";
+import { Card, Form, Row, Col } from "react-bootstrap";
+import LoginForm from "../components/LoginForm";
 export default class Login extends Component {
     render() {
         return (
-            <>
-                <p>TODO - implement Login component</p>
-                {/* TODO - apply LoginForm */}
-            </>
+            <Card>
+                <LoginForm onLogin={this.props.onLogin} />
+            </Card>
         )
     }
 }
