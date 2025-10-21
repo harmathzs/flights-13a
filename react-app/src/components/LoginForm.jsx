@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import { Card, Form, Row, Col, Button } from "react-bootstrap";
+import { Card, Form, Row, Col, Button, Toast } from "react-bootstrap";
 
 export default function LoginForm({onLogin}) {
+    const [showToast, setShowToast] = useState(false)
+
     const handleLogin = e => {
         e.preventDefault()
         let {email, password} = e.currentTarget.elements
@@ -34,6 +36,14 @@ export default function LoginForm({onLogin}) {
                 </Form.Group>
                 <Button variant="primary" type="submit">Login now</Button>
             </Form>
+
+            <Toast style={{marginTop: '10px'}} show={showToast}>
+                <Toast.Header>
+                    <strong className="me-auto">Login failure</strong>
+                    <small>now</small>
+                </Toast.Header>
+                <Toast.Body>Please login with registered email and password.</Toast.Body>
+            </Toast>
         </>
     )
 }
