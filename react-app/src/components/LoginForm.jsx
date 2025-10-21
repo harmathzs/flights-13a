@@ -13,11 +13,10 @@ export default function LoginForm({onLogin}) {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, password})
         })
+        .then(res=>res.json())
         .then(res=>{
-            if (res.ok) {
-                // call grandparent state set function
-                onLogin()
-            }
+            //console.log('res', res)
+            if (res.result.length>=1) onLogin()
         })
         .catch(console.warn)
     }
