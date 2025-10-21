@@ -19,6 +19,7 @@ export default function LoginForm({onLogin}) {
         .then(res=>{
             //console.log('res', res)
             if (res.result.length>=1) onLogin()
+            else setShowToast(true)
         })
         .catch(console.warn)
     }
